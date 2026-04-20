@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Services - GSG Agricultural</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-seedling"></i> GSG Agricultural
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html" class="active">Products & Services</a></li>
+            <li><a href="tractor-records.html">Records</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header" style="background: url('assets/images/hero_bg.png') center/cover; position:relative;">
+        <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(46,125,50,0.85);"></div>
+        <div style="position:relative; z-index:1;">
+            <h1>Our Machinery & Services</h1>
+            <p>Everyday solutions for modern farming</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="products-grid" style="grid-template-columns: 1fr; gap: 4rem;">
+                
+                <!-- Tractor -->
+                <div class="product-card" id="tractor" style="display: flex; flex-direction: row;">
+                    <img src="assets/images/tractor.png" alt="Tractor Service" class="product-img" style="flex:1; height:auto;">
+                    <div class="product-content" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+                        <h2>High-Power Tractor</h2>
+                        <p style="margin-bottom: 1rem;">Our primary heavy-lifting machinery. We use advanced implements to prepare soil optimally depending on your crop type.</p>
+                        <ul>
+                            <li><strong>Rotavator:</strong> Turns the soil for rice cultivation, ensuring fine soil tilth for optimal seedling growth.</li>
+                            <li><strong>Disk Plow:</strong> Deeply turns the soil specifically suited for corn cultivation.</li>
+                        </ul>
+                        <a href="tractor-records.html" class="btn btn-primary" style="align-self: flex-start; margin-top:1rem;">Log Tractor Work</a>
+                    </div>
+                </div>
+
+                <!-- Drone -->
+                <div class="product-card" id="drone" style="display: flex; flex-direction: row-reverse;">
+                    <img src="assets/images/drone.png" alt="Drone Service" class="product-img" style="flex:1; height:auto;">
+                    <div class="product-content" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+                        <h2>Agricultural Spraying Drone</h2>
+                        <p style="margin-bottom: 1rem;">Save time, save money, and increase yield safety with our smart agricultural drone solutions.</p>
+                        <ul>
+                            <li><strong>Precision Spraying:</strong> Sprays solid and liquid fertilizers strictly where needed.</li>
+                            <li><strong>Crop Types:</strong> Suitable for paddy, corn, and a variety of other crops.</li>
+                            <li><strong>Speed & Efficiency:</strong> Covers large acreages in hours compared to manual days.</li>
+                        </ul>
+                        <a href="drone-records.html" class="btn btn-primary" style="align-self: flex-start; margin-top:1rem;">Log Drone Work</a>
+                    </div>
+                </div>
+
+                <!-- Harvester -->
+                <div class="product-card" id="harvester" style="display: flex; flex-direction: row;">
+                    <img src="https://images.unsplash.com/photo-1590487988256-9ed24133863e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Rice Harvester" class="product-img" style="flex:1; height:auto;">
+                    <div class="product-content" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+                        <h2>Combine Rice Harvester</h2>
+                        <p style="margin-bottom: 1rem;">Don't let manual harvesting slow down your distribution. Our combine harvesters make quick work of golden paddies.</p>
+                        <ul>
+                            <li><strong>Rapid Harvesting:</strong> Clears entire fields securely.</li>
+                            <li><strong>Threshing System:</strong> Protects the grain yield while harvesting efficiently.</li>
+                        </ul>
+                        <a href="harvester-records.html" class="btn btn-primary" style="align-self: flex-start; margin-top:1rem;">Log Harvester Work</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GSG Agricultural. All rights reserved.</p>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <style>
+        @media (max-width: 900px) {
+            .product-card {
+                flex-direction: column !important;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GSG Agricultural</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-seedling"></i> GSG Agricultural
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products & Services</a></li>
+            <li><a href="tractor-records.html">Records</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header" style="background-color: var(--secondary-color); color: #2c3e50;">
+        <h1>Contact GSG Agricultural</h1>
+        <p>Get in touch for your modern farming needs.</p>
+    </header>
+
+    <section class="section">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <h2 style="font-size:2.5rem; margin-bottom:1.5rem; color:var(--primary-color);">Reach Out To Us</h2>
+                <p>Have any questions regarding our services? Are you looking to hire a tractor, drone, or harvester for your field? Let us know!</p>
+                
+                <div style="margin-top: 2rem;">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Meegaskada, Rathmalgahawewa</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <strong>Phone Number</strong>
+                            <p>0703671353</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>Email Address</strong>
+                            <p>info@gsgagricultural.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" class="form-control" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" required placeholder="070 123 4567">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea class="form-control" rows="5" required placeholder="How can we help you?"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GSG Agricultural. All rights reserved.</p>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Records - GSG Agricultural</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar no-print">
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-seedling"></i> GSG Agricultural
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products & Services</a></li>
+            <li><a href="tractor-records.html" class="active">Records</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="no-print" style="background:#eee; padding:1rem; text-align:center;">
+        <a href="tractor-records.html" class="btn" style="margin:0 0.5rem; background:#fff; color:#333;">🌾 Tractor</a>
+        <a href="drone-records.html" class="btn btn-primary" style="margin:0 0.5rem; background:#333;">🚁 Drone</a>
+        <a href="harvester-records.html" class="btn" style="margin:0 0.5rem; background:#fff; color:#333;">🚜 Harvester</a>
+    </div>
+
+    <header class="page-header no-print" style="padding: 4rem 5% 5rem; background:url('assets/images/drone.png') center/cover;">
+        <div style="position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(46,125,50,0.85); z-index:0;"></div>
+        <div style="position:relative; z-index:1;">
+            <h1>Drone Work Records</h1>
+            <p>Log fertilizer spraying jobs</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container record-container no-print">
+            <div class="record-form-block">
+                <h2 style="margin-bottom:1.5rem;">Enter Job Details</h2>
+                <form id="recordForm" data-machine="Drone" onsubmit="handleRecordSubmit(event)">
+                    <div class="form-group">
+                        <label>Location of Work</label>
+                        <input type="text" id="workLocation" class="form-control" required placeholder="e.g. Rathmalgahawewa Sector 4">
+                    </div>
+                    <div class="form-group">
+                        <label>Task Type (Fertilizer)</label>
+                        <select id="taskType" class="form-control" required>
+                            <option value="Solid Fertilizer Spraying">Solid Fertilizer Spraying</option>
+                            <option value="Liquid Fertilizer Spraying">Liquid Fertilizer Spraying</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Size of Location (Acres)</label>
+                        <input type="number" id="workSize" step="0.01" class="form-control" required placeholder="0.00" oninput="calculateTotal()">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount Charged Per Unit (Rs)</label>
+                        <input type="number" id="chargeRate" class="form-control" required placeholder="0.00" oninput="calculateTotal()">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Payment (Rs)</label>
+                        <input type="text" id="totalPayment" class="form-control" readonly style="background:#e0f2f1; font-weight:bold;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Save Record & Generate Bill</button>
+                    <p id="uploadStatus" style="margin-top:1rem; text-align:center; font-weight:600; color:#2e7d32; display:none;">
+                        <i class="fa-solid fa-check-circle"></i> Syncing to Google Sheets...
+                    </p>
+                </form>
+            </div>
+            
+            <div class="record-bill-block" id="billDisplay" style="display:none;">
+                <h2 style="margin-bottom:1rem; text-align:center;">Digital Bill</h2>
+                <div class="bill-paper" id="billPaper">
+                    <div class="bill-header">
+                        <h2>GSG Agricultural</h2>
+                        <p>Meegaskada, Rathmalgahawewa</p>
+                        <p>Tel: 0703671353</p>
+                        <p style="margin-top:0.5rem; color:#7f8c8d; font-size:0.9rem;" id="billDate"></p>
+                    </div>
+                    <div>
+                        <div class="bill-row"><strong>Machine:</strong> <span id="bMachine"></span></div>
+                        <div class="bill-row"><strong>Task Type:</strong> <span id="bTask"></span></div>
+                        <div class="bill-row"><strong>Location:</strong> <span id="bLoc"></span></div>
+                        <div class="bill-row" style="margin-top:1rem;"><strong>Size (Acres):</strong> <span id="bSize"></span></div>
+                        <div class="bill-row"><strong>Rate per Acre:</strong> <span>Rs <span id="bRate"></span></span></div>
+                        <div class="bill-total bill-row"><strong>Total Due:</strong> <span>Rs <span id="bTotal"></span></span></div>
+                    </div>
+                    <div style="text-align:center; margin-top:2rem;" class="no-print">
+                        <button class="btn" style="background:#333; color:#fff;" onclick="window.print()"><i class="fa-solid fa-print"></i> Print Bill</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container no-print" style="margin-top:4rem;">
+            <h2>Recent Drone Records</h2>
+            <div style="overflow-x:auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Task</th>
+                            <th>Size (Acres)</th>
+                            <th>Rate (Rs)</th>
+                            <th>Total (Rs)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recordsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer class="no-print">
+        <p>&copy; 2026 GSG Agricultural. All rights reserved.</p>
+    </footer>
+    <script src="assets/js/records.js"></script>
+    <script src="assets/js/main.js"></script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            .bill-paper { box-shadow: none; border: 1px solid #000; margin: 0; }
+            #billDisplay { display: block !important; }
+        }
+    </style>
+</body>
+</html>

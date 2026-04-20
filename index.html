@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSG Agricultural</title>
+    <meta name="description"
+        content="Professional agricultural services including tractor plowing, drone spraying, and rice harvesting.">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-seedling"></i> GSG Agricultural
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products & Services</a></li>
+            <li><a href="tractor-records.html">Records</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+            <i class="fa-solid fa-bars fa-2x"></i>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Modernize Your <span>Farming</span></h1>
+            <p>Advanced agricultural solutions using tractors, drones, and rice harvesters. Enhance your crop yields
+                with GSG Agricultural.</p>
+            <a href="products.html" class="btn btn-primary">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2>Our Core Technologies</h2>
+                <p>We leverage advanced machinery to provide top-notch agricultural services.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="assets/images/tractor.png" alt="Tractor Service" class="product-img">
+                    <div class="product-content">
+                        <h3>Tractor Services</h3>
+                        <p>Soil turning for rice cultivation with rotavator and corn cultivation with disk plow.</p>
+                        <a href="products.html#tractor"
+                            style="color:var(--primary-color); font-weight:600; margin-top:1rem; display:inline-block;">Learn
+                            More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="assets/images/drone.png" alt="Drone Service" class="product-img">
+                    <div class="product-content">
+                        <h3>Drone Spraying</h3>
+                        <p>Efficient spraying of solid and liquid fertilizers for paddy, corn and other crops.</p>
+                        <a href="products.html#drone"
+                            style="color:var(--primary-color); font-weight:600; margin-top:1rem; display:inline-block;">Learn
+                            More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="assets/images/harvester.png" alt="Rice Harvester" class="product-img">
+                    <div class="product-content">
+                        <h3>Rice Harvesting</h3>
+                        <p>Fast, efficient, and reliable rice harvesting with modern combine harvester machinery.</p>
+                        <a href="products.html#harvester"
+                            style="color:var(--primary-color); font-weight:600; margin-top:1rem; display:inline-block;">Learn
+                            More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 GSG Agricultural. All rights reserved. | <a href="contact.html" style="color:#fdd835;">Contact
+                Us</a></p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
